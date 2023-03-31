@@ -1,0 +1,61 @@
+#!/bin/bash
+
+#variables
+IFE=mkv     #Input File Extension
+ONA=_[x265] #Output Name Addition
+OFE=.mkv    #Output File Extension
+PIF=/mnt/media_tv/good_eats_1080.json #Preset Import File
+PIN=good_eats_1080 #Preset Import Name
+
+red="\e[31m"      #color text
+green="\e[32m"    #color text
+endcolor="\e[0m"  #end color
+
+#sanity check
+#confirm handbrake works in this location
+if ! command -v HandBrakeCLI &> /dev/null 
+then
+    echo "*"
+	echo -e "* ${red}abort:${endcolor} HandBrakeCLI could not be found"
+    echo "*"
+    exit
+fi
+
+#sanity check
+#confirm exported template .json file exists in expected location
+if [[ ! -f $PIF ]] ;
+then
+    echo "*"
+    echo -e "* ${red}abort:${endcolor} $PIF could not be found"
+    echo "*"
+    exit
+fi
+
+#sanity check
+#chance to abort
+clear
+echo "*"
+echo -e "* loop will process all files in this folder with ${green}$OFE${endcolor} file extension."
+echo -e "* handbrake profile named "${green}$PIN${endcolor}", from ${green}$PIF${endcolor}"
+echo -e "* processed files will have \"${green}$ONA${endcolor}\" appended to their name."
+echo "*"
+
+read -p "* press y to continue, any other key to abort " -n 1 -r
+echo    # (optional) move to a new line
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    echo "*"
+    echo -e "* ${red}aborted${endcolor}"
+    echo "*"
+    exit
+fi
+
+#here we go
+#loop
+for i in *.$IFE; do
+    SFN=${i%%.*} #strip the extension off the file being processed
+	HandBrakeCLI --preset-import-file $PIF -Z "$PIN" -i $i -o $SFN$ONA$OFE
+done
+
+#exit
+exit
