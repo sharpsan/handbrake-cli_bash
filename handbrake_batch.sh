@@ -16,7 +16,7 @@ endcolor="\e[0m"  #end color
 if ! command -v HandBrakeCLI &> /dev/null 
 then
     echo "*"
-	echo -e "* ${red}abort:${endcolor} HandBrakeCLI could not be found"
+    echo -e "* ${red}abort:${endcolor} HandBrakeCLI could not be found"
     echo "*"
     exit
 fi
@@ -41,7 +41,6 @@ echo -e "* processed files will have \"${green}$ONA${endcolor}\" appended to the
 echo "*"
 
 read -p "* press y to continue, any other key to abort " -n 1 -r
-echo    # (optional) move to a new line
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
     echo "*"
@@ -54,7 +53,7 @@ fi
 #loop
 for i in *.$IFE; do
     SFN=${i%%.*} #strip the extension off the file being processed
-	HandBrakeCLI --preset-import-file $PIF -Z "$PIN" -i $i -o $SFN$ONA$OFE
+    HandBrakeCLI --preset-import-file $PIF -Z "$PIN" -i $i -o $SFN$ONA$OFE
 done
 
 #exit
