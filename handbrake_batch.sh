@@ -35,10 +35,10 @@ fi
 #chance to abort
 clear
 echo "*"
-echo -e "* loop will process all files in this folder with ${green}$IFE${endcolor} file extension."
-echo -e "* handbrake profile named "${green}$PIN${endcolor}", from ${green}$PIF${endcolor}"
+echo -e "* loop will process all files in this folder with ${green}.$IFE${endcolor} file extension."
+echo -e "* handbrake profile named "${green}$PIN${endcolor}", from ${green}$PIF${endcolor}."
 echo -e "* processed files will have \"${green}$ONA${endcolor}\" appended to their name."
-echo -e "* processed files will have .${green}$OFE${endcolor} file extension."
+echo -e "* processed files will have ${green}.$OFE${endcolor} file extension."
 echo "*"
 
 read -p "* press y to continue, any other key to abort " -n 1 -r
