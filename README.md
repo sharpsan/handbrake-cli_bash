@@ -1,6 +1,5 @@
 # handbrake-cli_bash
 simple bash script to streamline batch processing of files using handbrake-cli
-good afternoon, 
 
 after fussing with this for some time, i've got my setup streamlined, and i'm seeing ~90% overall CPU saturation on my server, so i'm 
 pretty satisfied with the efficiency. 
@@ -37,6 +36,7 @@ the setup :
   1.5 do your math to figure out how many containers you will make, to provide 8-10 CPUs per container, *but only make the first one*.
 
  
+ 
   2.0 updating and software for containers
 
   2.1 assuming you'll using the `console` function from proxmox to get a terminal into your first container, you'll be logged in as 
@@ -56,11 +56,13 @@ the setup :
   2.7 replicate the container as needed for your total count
   
 
+
   3.0 mapping your network-accessible media files
 
   3.1 open a terminal on your proxmox host, and navigate to `/etc/pve/nodes/<hostname>/lxc/`
 
   3.2 each of your LXC has a configuration file, edit them and between the line that begins with "memory" and the line that begins with "net 0" you need to add a new line of text, `mp0: <path to hosted SMB share>,mp=<path to SMB mount point on container>` write the changes to the .conf file and close it. when you restart your LXC the share will be mounted. 
+
 
 
   4.0 profiles and bash script
@@ -70,6 +72,7 @@ the setup :
   4.2 i uploaded the bash script here : https://github.com/imaginarycheetah/handbrake-cli_bash either download it or copy the text and paste it into a new .sh file, it needs to be saved where it will be accessible on your SMB share. be sure to `chmod +x <file.sh>` so that it can execute.
 
   4.3 open a terminal for each LXC and make a symlink to the handbrake-batch.sh file `ln -s /<mounted SMB share>/bash.sh /bin/handbrake-batch`pay attention to the omission of the .sh file extension on the created symlink. this allows the script to be invoked as you would a normal program. 
+
 
 
   5.0 script variables to modify (only make modifications to the actual bash.sh script, not the symlinks)
