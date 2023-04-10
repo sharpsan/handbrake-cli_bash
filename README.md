@@ -6,14 +6,14 @@ pretty satisfied with the efficiency.
 
 
 i wasn't able to find many answers for what i wanted to do, so i figured i'd write up a guide to help anyone else out there who 
-is looking to do the same thing. i'm sure there are better methods, but at least this post might be a useful starting point for you :)
+is looking to do the same thing. i'm sure there are better methods, but at least this might be a useful starting point for you :)
 
 
 assumptions :
 
-1. you're running proxmox, and have a computer with +6 CPUs, and trying to use handbrake to do some batch encoding. this CPU "limit" is where handbrake advises their program efficiency begins to decline https://handbrake.fr/docs/en/1.0.0/technical/video-encoding-performance.html
+1. you're running proxmox, and have a computer with +6 CPUs, and trying to use handbrake to do some batch encoding. this 6 CPU "limit" is where handbrake advises their program efficiency begins to decline https://handbrake.fr/docs/en/1.0.0/technical/video-encoding-performance.html
 
-2. you have your files on a different machine than you'll be doing the encoding from. i suppose they could all be the same physical machine, but part of this guide will be about getting the shares mounted, so ignore what isn't applicable for you. 
+2. you have your files on a different machine than you'll be doing the encoding from. i suppose they could all be the same physical machine, but part of this guide will be about getting the shares mounted, and symlinking the profiles, so ignore what isn't applicable for you. 
 
 3. you have already got some profiles set up in handbrake, that you'd like to be able to apply to convert batches of files, without having to tinker with the settings and make sure that all your settings actually stay in place. i've found the "add to queue" function in the GUI version of handbrake often fails to preserve my audio settings, and it's tedious to have to add each file manually to the queue. 
 
