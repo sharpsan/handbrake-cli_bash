@@ -63,7 +63,7 @@ the setup :
 
   3.2 each of your LXC has a configuration file, edit them and between the line that begins with "memory" and the line that begins with "net 0" you need to add a new line of text, `mp0: <path to hosted SMB share>,mp=<path to SMB mount point on container>` write the changes to the .conf file and close it. when you restart your LXC the share will be mounted. 
 
-
+&nbsp;
 
   4.0 profiles and bash script
 
@@ -71,9 +71,9 @@ the setup :
 
   4.2 i uploaded the bash script here : https://github.com/imaginarycheetah/handbrake-cli_bash either download it or copy the text and paste it into a new .sh file, it needs to be saved where it will be accessible on your SMB share. be sure to `chmod +x handbrake_batch.sh` so that it can execute.
 
-  4.3 open a terminal for each LXC and make a symlink to the handbrake-batch.sh file `ln -s /<mounted SMB share>/handbrake_batch.sh /bin/handbrake_batch`pay attention to the omission of the .sh file extension on the created symlink. this allows the script to be invoked as you would a normal program. 
+  4.3 open a terminal for each LXC and make a symlink to the handbrake-batch.sh file `ln -s /<mounted SMB share>/handbrake_batch.sh /bin/handbrake_batch` please note the omission of the .sh file extension on the created symlink. this allows the script to be invoked as you would a normal program. 
 
-
+&nbsp;
 
   5.0 script variables to modify (only make modifications to the actual bash.sh script, not the symlinks)
 
