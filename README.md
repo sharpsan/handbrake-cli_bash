@@ -69,9 +69,9 @@ the setup :
 
   4.1 make sure your handbrake *Preset* is configured correctly (i had trouble with the audio and subtitle options, which need to be set using the "Selection Behavior" buttons within the "Manage Presets" screen) and export the file to where it will be accessible on your SMB share. 
 
-  4.2 i uploaded the bash script here : https://github.com/imaginarycheetah/handbrake-cli_bash either download it or copy the text and paste it into a new .sh file, it needs to be saved where it will be accessible on your SMB share. be sure to `chmod +x handbrake-batch.sh` so that it can execute.
+  4.2 i uploaded the bash script here : https://github.com/imaginarycheetah/handbrake-cli_bash either download it or copy the text and paste it into a new .sh file, it needs to be saved where it will be accessible on your SMB share. be sure to `chmod +x handbrake_batch.sh` so that it can execute.
 
-  4.3 open a terminal for each LXC and make a symlink to the handbrake-batch.sh file `ln -s /<mounted SMB share>/handbrake-batch.sh /bin/handbrake-batch`pay attention to the omission of the .sh file extension on the created symlink. this allows the script to be invoked as you would a normal program. 
+  4.3 open a terminal for each LXC and make a symlink to the handbrake-batch.sh file `ln -s /<mounted SMB share>/handbrake_batch.sh /bin/handbrake_batch`pay attention to the omission of the .sh file extension on the created symlink. this allows the script to be invoked as you would a normal program. 
 
 
 
@@ -96,7 +96,7 @@ application :
 
 2. start your LXC, open a terminal, navigate to the appropriate sub-folder where your files are
 
-3. type name of the bash file, for example `handbrake-batch`
+3. invoke by typing `handbrake_batch`
 
 4. you should be prompted with a screen that confirms the values of the variables, and prompts you to press the 'y' key to being processing
 
