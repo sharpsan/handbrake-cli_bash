@@ -8,6 +8,7 @@ pretty satisfied with the efficiency.
 i wasn't able to find many answers for what i wanted to do, so i figured i'd write up a guide to help anyone else out there who 
 is looking to do the same thing. i'm sure there are better methods, but at least this might be a useful starting point for you :)
 
+&nbsp;
 
 assumptions :
 
@@ -19,7 +20,7 @@ assumptions :
 
 4. this guide is written having used default template of ubuntu 22.04 for the containers. 
 
-
+&nbsp;
 
 the setup :
 
@@ -35,7 +36,7 @@ the setup :
 
   1.5 do your math to figure out how many containers you will make, to provide 8-10 CPUs per container, *but only make the first one*.
 
- 
+&nbsp;
  
   2.0 updating and software for containers
 
@@ -55,7 +56,7 @@ the setup :
 
   2.7 replicate the container as needed for your total count
   
-
+&nbsp;
 
   3.0 mapping your network-accessible media files
 
@@ -87,7 +88,7 @@ the setup :
 
   5.5 PIN is the name of the profile to be used from the JSON file
 
-
+&nbsp;
 
 application :
 
