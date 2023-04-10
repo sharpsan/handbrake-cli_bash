@@ -76,7 +76,7 @@ the setup :
 
 &nbsp;
 
-  5.0 script variables to modify (only make modifications to the actual bash.sh script, not the symlinks)
+  5.0 script variables to modify (only make modifications to the actual script, not the symlinks)
 
   5.1 IFE is for the extension of the files *to be processed*
 
