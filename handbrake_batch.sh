@@ -1,11 +1,13 @@
 #!/bin/bash
+# small script for batch processing a folder of files using handbrake-cli
+# for official documentation on handbrake-cli https://handbrake.fr/docs/
 
 #variables
 IFE=mkv     #Input File Extension
 ONA=_[x265] #Output Name Addition
 OFE=.mkv    #Output File Extension
-PIF=/mnt/media_tv/good_eats_1080.json #Preset Import File
-PIN=good_eats_1080 #Preset Import Name
+PIF=/your_location/exported_handbrake_profiles.json #Preset Import File
+PIN=Specific_Profile_Name #Preset Import Name
 
 red="\e[31m"      #color text
 green="\e[32m"    #color text
