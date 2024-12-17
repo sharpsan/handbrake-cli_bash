@@ -4,10 +4,10 @@
 
 #variables
 IFE=mkv     #Input File Extension
-ONA=_[x265] #Output Name Addition
+ONA="_[x265]" #Output Name Addition
 OFE=.mkv    #Output File Extension
 PIF=/your_location/exported_handbrake_profiles.json #Preset Import File
-PIN=Specific_Profile_Name #Preset Import Name
+PIN="Specific Profile Name " #Preset Import Name
 
 red="\e[31m"      #color text
 green="\e[32m"    #color text
@@ -55,8 +55,8 @@ fi
 #here we go
 #loop
 for i in *.$IFE; do
-    SFN=${i%%.*} #strip the extension off the file being processed
-    HandBrakeCLI --preset-import-file $PIF -Z "$PIN" -i $i -o $SFN$ONA$OFE
+    SFN="${i%.*}" #strip the extension off the file being processed
+    HandBrakeCLI --preset-import-file $PIF -Z "$PIN" -i "$i" -o "$SFN$ONA$OFE"
 done
 
 #exit
