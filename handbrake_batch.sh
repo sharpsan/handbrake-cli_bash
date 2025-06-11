@@ -78,7 +78,7 @@ LOGFILE="handbrake_batch_processed.log"
 #loop
 if [ "$RECURSIVE" = true ]; then
     # Recursively find files with the specified extension
-    find . -type f -name "*.$IFE" | sort | while read -r i; do
+    while IFS= read -r i; do
         DIRNAME=$(dirname "$i")
         BASENAME=$(basename "$i")
         SFN="${BASENAME%.*}" # strip the extension
@@ -89,7 +89,7 @@ if [ "$RECURSIVE" = true ]; then
             HandBrakeCLI --preset-import-file "$PIF" -Z "$PIN" -i "$i" -o "$OUTPUT"
         fi
         echo "$(date '+%Y-%m-%d %H:%M:%S') | INPUT: $i | OUTPUT: $OUTPUT" >> "$LOGFILE"
-    done
+    done < <(find . -type f -name "*.$IFE" | sort)
 else
     for i in *.$IFE; do
         [ -e "$i" ] || continue
