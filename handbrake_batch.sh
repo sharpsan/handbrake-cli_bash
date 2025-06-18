@@ -33,6 +33,17 @@ then
     exit
 fi
 
+# check for switches
+RECURSIVE=false
+DRYRUN=false
+for arg in "$@"; do
+    if [[ "$arg" == "-recursive" ]]; then
+        RECURSIVE=true
+    elif [[ "$arg" == "-dryrun" ]]; then
+        DRYRUN=true
+    fi
+done
+
 #sanity check
 #chance to abort
 clear
@@ -59,17 +70,6 @@ then
     echo "*"
     exit
 fi
-
-# check for switches
-RECURSIVE=false
-DRYRUN=false
-for arg in "$@"; do
-    if [[ "$arg" == "-recursive" ]]; then
-        RECURSIVE=true
-    elif [[ "$arg" == "-dryrun" ]]; then
-        DRYRUN=true
-    fi
-done
 
 LOGFILE="handbrake_batch_processed.log"
 : > "$LOGFILE"  # Truncate log file at start
